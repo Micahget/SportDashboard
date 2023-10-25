@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // First we will import the API_ENDPOINT constant from the `config` folder
 import { API_ENDPOINT } from '../../config/constants'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const SigninForm: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -56,6 +56,11 @@ const SigninForm: React.FC = () => {
         <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border rounded-md py-2 px-3 text-white leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue" />
       </div>
       <button type="submit" className="w-full bg-gray-700 hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-gray mt-4">Sign In</button>
+  
+      <p className="mt-4 text-center text-black">
+        Don't have an account yet? <Link to={'/signup'}
+          className="underline">Sign Up</Link>
+      </p>
     </form>
   );
 };
